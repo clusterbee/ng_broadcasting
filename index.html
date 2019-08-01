@@ -40,86 +40,76 @@
 </head>
 
 <body ng-app="miApp" ng-controller="c_app">
-    <!-- Cabecera Logo -->
-    <div class="contenedorCabecera"><img src="angulajs70h.png" height="40px"></div>
-    <div class="subCabecera"><span>Laboratorio de Propagación y Broadcasting entre 'scopes'</span></div>
+    <!-- Cabeceras y Logos -->
+    <div class="github-logo">
+        <a title="Repositorio en GitHub" href="https://github.com/clusterbee/ng_broadcasting">
+            <img src="github.png" alt="Repositorio en GitHub">
+        </a>
+    </div>
+    <div class="contenedorCabecera"><img class="angularjs-logo" src="angulajs70h.png"></div>
+    <div class="subCabecera">
+        <span>Laboratorio de Propagación y Broadcasting entre 'scopes'</span>
+    </div>
     <!-- Lienzo Broadcasting -->
     <div id="pizarra">
         <canvas id="lienzo" width="480" height="400">Su navegador no soporta canvas :( </canvas>
 
+        <div id="bigone">
+            <div id="btnReiniciar">
+                <button ng-click="reiniciarValores()">Asignar valores aleatorios</button>
+            </div>
+            <div class="scope rscope" id="rootscope">
+                $rootScope.valor =&nbsp;
+                <!--
+                    $scope.valor no está definido es este scope,
+                    sin embargo hereda 'valor' de su scope padre que
+                    en nuestro caso particular coincide con $rootScope.
+                    (Recuerde que un scope no puede tener más de un scope padre).
+                    Por lo tanto en este caso particular las siguientes
+                    líneas producen idéntico efecto, haciendo ambas
+                    referencia a $rootScope.valor :
 
-    <div id="bigone">
-        <div id="btnReiniciar">
-            <button ng-click="reiniciarValores()">Asignar valores aleatorios</button>
-        </div>
-        <div class="scope rscope" id="rootscope">
-            $rootScope.valor =&nbsp;
-            <!--
-                $scope.valor no está definido es este scope,
-                sin embargo hereda 'valor' de su scope padre que
-                en nuestro caso particular coincide con $rootScope.
-                (Recuerde que un scope no puede tener más de un scope padre).
-                Por lo tanto en este caso particular las siguientes
-                líneas producen idéntico efecto, haciendo ambas
-                referencia a $rootScope.valor :
+                            <span ng-bind="valor"></span>
+                            <span ng-bind="$parent.valor"></span>
 
-                        <span ng-bind="valor"></span>
-                        <span ng-bind="$parent.valor"></span>
+                    Sin embargo la siguiente linea sería la utilizar
+                    de manera lógica, pero no funciona:
 
-                Sin embargo la siguiente linea sería la utilizar
-                de manera lógica, pero no funciona:
+                            <span ng-bind="$rootScope.valor"></span>
 
-                        <span ng-bind="$rootScope.valor"></span>
-
-                Por lo tanto nos decantamos por una de las dos primeras
-                como indicamos a continuación...
-            -->
-            <span ng-bind="$parent.valor"></span>
-            <br>
-            <button ng-click="broadcasting()">B</button>
-            <button ng-click="rootBroadcasting()">RB</button>
-            <button ng-click="emit()">E</button><br>
-            <button class="btnProp" ng-click="switchPropagation()">Pr</button>
-            <div class="scope" id="scope1" ng-controller="c_scope1">
-                $scope(1).valor =&nbsp;<span ng-bind="valor"></span>
+                    Por lo tanto nos decantamos por una de las dos primeras
+                    como indicamos a continuación...
+                -->
+                <span ng-bind="$parent.valor"></span>
                 <br>
                 <button ng-click="broadcasting()">B</button>
                 <button ng-click="rootBroadcasting()">RB</button>
                 <button ng-click="emit()">E</button><br>
                 <button class="btnProp" ng-click="switchPropagation()">Pr</button>
-                <div class="scope" id="scope2" ng-controller="c_scope2">
-                    $scope(2).valor =&nbsp;<span ng-bind="valor"></span>
+                <div class="scope" id="scope1" ng-controller="c_scope1">
+                    $scope(1).valor =&nbsp;<span ng-bind="valor"></span>
                     <br>
                     <button ng-click="broadcasting()">B</button>
                     <button ng-click="rootBroadcasting()">RB</button>
                     <button ng-click="emit()">E</button><br>
                     <button class="btnProp" ng-click="switchPropagation()">Pr</button>
-                    <div class="scope" id="scope4" ng-controller="c_scope4">
-                        $scope(4).valor =&nbsp;<span ng-bind="valor"></span>
+                    <div class="scope" id="scope2" ng-controller="c_scope2">
+                        $scope(2).valor =&nbsp;<span ng-bind="valor"></span>
                         <br>
                         <button ng-click="broadcasting()">B</button>
                         <button ng-click="rootBroadcasting()">RB</button>
                         <button ng-click="emit()">E</button><br>
                         <button class="btnProp" ng-click="switchPropagation()">Pr</button>
-                    </div>
-                    <div class="scope" id="scope5" ng-controller="c_scope5">
-                        $scope(5).valor =&nbsp;<span ng-bind="valor"></span>
-                        <br>
-                        <button ng-click="broadcasting()">B</button>
-                        <button ng-click="rootBroadcasting()">RB</button>
-                        <button ng-click="emit()">E</button><br>
-                        <button class="btnProp" ng-click="switchPropagation()">Pr</button>
-                    </div>
-                </div>
-                <div class="scope" id="scope3" ng-controller="c_scope3">
-                    $scope(3).valor =&nbsp;<span ng-bind="valor"></span>
-                        <br>
-                        <button ng-click="broadcasting()">B</button>
-                        <button ng-click="rootBroadcasting()">RB</button>
-                        <button ng-click="emit()">E</button><br>
-                        <button class="btnProp" ng-click="switchPropagation()">Pr</button>
-                        <div class="scope" id="scope6" ng-controller="c_scope6">
-                            $scope(6).valor =&nbsp;<span ng-bind="valor"></span>
+                        <div class="scope" id="scope4" ng-controller="c_scope4">
+                            $scope(4).valor =&nbsp;<span ng-bind="valor"></span>
+                            <br>
+                            <button ng-click="broadcasting()">B</button>
+                            <button ng-click="rootBroadcasting()">RB</button>
+                            <button ng-click="emit()">E</button><br>
+                            <button class="btnProp" ng-click="switchPropagation()">Pr</button>
+                        </div>
+                        <div class="scope" id="scope5" ng-controller="c_scope5">
+                            $scope(5).valor =&nbsp;<span ng-bind="valor"></span>
                             <br>
                             <button ng-click="broadcasting()">B</button>
                             <button ng-click="rootBroadcasting()">RB</button>
@@ -127,9 +117,25 @@
                             <button class="btnProp" ng-click="switchPropagation()">Pr</button>
                         </div>
                     </div>
+                    <div class="scope" id="scope3" ng-controller="c_scope3">
+                        $scope(3).valor =&nbsp;<span ng-bind="valor"></span>
+                            <br>
+                            <button ng-click="broadcasting()">B</button>
+                            <button ng-click="rootBroadcasting()">RB</button>
+                            <button ng-click="emit()">E</button><br>
+                            <button class="btnProp" ng-click="switchPropagation()">Pr</button>
+                            <div class="scope" id="scope6" ng-controller="c_scope6">
+                                $scope(6).valor =&nbsp;<span ng-bind="valor"></span>
+                                <br>
+                                <button ng-click="broadcasting()">B</button>
+                                <button ng-click="rootBroadcasting()">RB</button>
+                                <button ng-click="emit()">E</button><br>
+                                <button class="btnProp" ng-click="switchPropagation()">Pr</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
         <div id="panelLeyendas">
             "Asigne automáticamente un número aleatorio a la variable 'valor' de cada scope. Valor que podremos propagar con $broadcast y $emit."
             <h3>Leyenda botones de propagación</h3>
