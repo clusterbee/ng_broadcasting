@@ -1,0 +1,187 @@
+body{
+    font-family: 'Red Hat Text', sans-serif;
+    font-size: 14px;
+}
+/* Cabecera */
+.contenedorCabecera {
+	width:100%;/*480px;*/
+	height:50px;
+	line-height:50px;
+	margin:0px auto;
+	text-align:center;
+	background-color:#263238;
+}
+.contenedorCabecera img {
+    display: inline-block;
+	vertical-align:middle;
+    margin-left:0px;
+}
+.subCabecera {
+	background-color:#263238;
+    opacity: 0.8;
+    width:481px;
+    height:50px;
+    line-height: 50px;
+    margin:4px auto;
+    border-radius: 10px 10px 0px 0px;
+    text-align:center;
+}
+.subCabecera span{
+    /*display: inline-block;*/
+    vertical-align: middle;
+    color: white;
+    font-size: 1.2em;
+}
+.btnProp {
+    margin-left:10px;
+    color:red;
+    border-radius:10px;
+    border-style:solid;
+}
+#pizarra {
+    position: relative;
+    top: 0px;
+    left: -1px;
+    width:479px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+#lienzo {
+    border: 1px dashed blue;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+}
+
+#panelLeyendas {
+    position: absolute;
+    padding: 20px;
+    padding-top: 0px;
+    width: 439px;
+    height: 140px;
+    top: 400px;
+    left: 0px;
+    border-width: thin;
+    border-style: solid;
+    border-radius: 0px 0px 10px 10px;
+    border-color: dimgray;
+    background-color: lightgray;
+    text-align: left;
+}
+#panelLeyendas div {
+    width: 50%;
+    float: left;
+}
+#panelLeyendas h3 {
+    text-decoration: underline;
+    text-align: center;
+}
+.enfatizar {
+    font-style: oblique;
+    font-size: 1.1em;
+    color: blue;
+}
+#bigone {
+    position:relative;
+    top:-496px;
+    left: -36px;
+}
+.scope {
+    width: 140px;
+    height: 50px;
+    border-width: thin;
+    border-style: solid;
+    border-radius: 6px;
+    text-align: center;
+}
+.rscope {
+    width:170px;
+}
+#rootscope {
+    position: absolute;
+    left: 224px;
+    top: 107px;
+}
+#scope1 {
+    position: absolute;
+    left: 15px;
+    top: 100px;
+}
+#scope2 {
+    position: absolute;
+    left: -112px;
+    top: 100px;
+}
+#scope3 {
+    position: absolute;
+    left: 113px;
+    top: 100px;
+}
+#scope4 {
+    position: absolute;
+    left: -75px;
+    top: 100px;
+}
+#scope5 {
+    position: absolute;
+    left: 75px;
+    top: 100px;
+}
+#scope6 {
+    position: absolute;
+    left: 0px;
+    top: 100px;
+}
+.scope button {
+    margin-top: 4px;
+}
+#btnReiniciar {
+    position: absolute;
+    width: 60px;
+    left: 70px;
+    top: 165px;
+}
+
+#btnReiniciar button {
+	-moz-box-shadow: 0px 1px 0px 0px #fff6af;
+	-webkit-box-shadow: 0px 1px 0px 0px #fff6af;
+	box-shadow: 0px 1px 0px 0px #fff6af;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23));
+	background:-moz-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:-webkit-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:-o-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:-ms-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23',GradientType=0);
+	background-color:#ffec64;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-size:15px;
+	padding:10px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffee66;
+}
+#btnReiniciar button:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64));
+	background:-moz-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:-webkit-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:-o-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:-ms-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64',GradientType=0);
+	background-color:#ffab23;
+}
+#btnReiniciar button:active {
+	position:relative;
+	top:1px;
+}
+
+button {
+    outline: none;
+}
